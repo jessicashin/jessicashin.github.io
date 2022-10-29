@@ -27,13 +27,15 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
+    - name: Checkout
+      uses: actions/checkout@v3
     - name: Setup Node
       uses: actions/setup-node@v3
       with:
         node-version: 18.x
         cache: 'npm'
-    - uses: actions/configure-pages@v2
+    - name: Setup Pages
+      uses: actions/configure-pages@v2
     - run: npm ci
     - run: npm run build
     - run: npm test
