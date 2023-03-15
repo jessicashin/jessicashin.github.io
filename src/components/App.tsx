@@ -68,7 +68,9 @@ function App() {
                     "GraphQL",
                     "Node.js",
                   ].map((name) => (
-                    <li className="before:mr-2 before:content-['▪']">{name}</li>
+                    <li className="before:mr-2 before:content-['▪']" key={name}>
+                      {name}
+                    </li>
                   ))}
                 </ul>
               </div>
@@ -105,8 +107,11 @@ function App() {
               className="group relative flex flex-col items-end text-6xl font-thin uppercase before:absolute before:top-1 before:left-5 before:content-['→']"
               onClick={() => toggleJobs()}
             >
-              {["My Work", "Experience"].map((text) => (
-                <div className="relative -mb-1 after:absolute after:top-0 after:left-0 after:bottom-0 after:block after:w-0 after:bg-stone-800 after:transition-all after:duration-75 last:mb-0 group-hover:text-stone-300 group-hover:after:w-full dark:after:bg-stone-300 dark:group-hover:text-stone-800">
+              {["My Work", "Experience"].map((text, index) => (
+                <div
+                  className="relative -mb-1 after:absolute after:top-0 after:left-0 after:bottom-0 after:block after:w-0 after:bg-stone-800 after:transition-all after:duration-75 last:mb-0 group-hover:text-stone-300 group-hover:after:w-full dark:after:bg-stone-300 dark:group-hover:text-stone-800"
+                  key={index}
+                >
                   <div className="relative z-10 pt-1 pr-3 pl-2">{text}</div>
                 </div>
               ))}
