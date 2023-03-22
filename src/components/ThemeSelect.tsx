@@ -1,6 +1,6 @@
+import { useState } from "react";
 import clsx from "clsx";
-import React from "react";
-import IconButton from "./IconButton";
+import { IconButton } from "./IconButton";
 
 type ThemeOption = "light" | "dark" | "auto";
 
@@ -22,10 +22,8 @@ const ThemeButton = (props: ThemeButtonProps) => (
   </IconButton>
 );
 
-const ThemeSelect = (props: React.HTMLProps<HTMLDivElement>) => {
-  const [theme, setTheme] = React.useState<ThemeOption>(
-    localStorage.theme || "auto"
-  );
+export default function ThemeSelect(props: React.HTMLProps<HTMLDivElement>) {
+  const [theme, setTheme] = useState<ThemeOption>(localStorage.theme || "auto");
 
   const saveTheme = (theme: ThemeOption) => {
     setTheme(theme);
@@ -88,6 +86,4 @@ const ThemeSelect = (props: React.HTMLProps<HTMLDivElement>) => {
       </div>
     </div>
   );
-};
-
-export default ThemeSelect;
+}

@@ -1,18 +1,43 @@
-import React from "react";
+import React, { PropsWithChildren } from "react";
 import clsx from "clsx";
+import { Link, LinkProps } from "react-router-dom";
 
-const IconButton = (props: React.ComponentProps<"button">) => {
+const ButtonText = (props: PropsWithChildren) => (
+  <span className="decoration-1 underline-offset-4 group-hover:underline">
+    {props.children}
+  </span>
+);
+
+export function IconButton(props: React.ComponentProps<"button">) {
   const { children, className, ...buttonProps } = props;
   return (
-    <button
-      className={clsx("group uppercase before:mr-2", className)}
-      {...buttonProps}
-    >
-      <span className="decoration-1 underline-offset-4 group-hover:underline">
-        {props.children}
-      </span>
+    <button className={clsx("group uppercase", className)} {...buttonProps}>
+      <ButtonText>{children}</ButtonText>
     </button>
   );
-};
+}
 
-export default IconButton;
+export function IconLink(props: LinkProps) {
+  const { children, className, ...linkProps } = props;
+  return (
+    <Link className={clsx("group uppercase", className)} {...linkProps}>
+      <ButtonText>{children}</ButtonText>
+    </Link>
+  );
+}
+
+export function Hyperlink(props: React.ComponentProps<"a">) {
+  const { children, className, ...linkProps } = props;
+  return (
+    <a
+      className={clsx(
+        "group after:ml-1 after:align-text-bottom after:text-sm after:content-['↗']",
+        className
+      )}
+      target="_blank"
+      {...linkProps}
+    >
+      <ButtonText>{children}</ButtonText>
+    </a>
+  );
+}

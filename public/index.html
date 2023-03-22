@@ -31,12 +31,34 @@
         } else {
           document.documentElement.classList.remove("dark");
         }
+
+        window.addEventListener("DOMContentLoaded", () => {
+          setTimeout(() =>
+            document.body.classList.add("transition-colors", "duration-500")
+          );
+        });
+
+        window
+          .matchMedia("(prefers-color-scheme: dark)")
+          .addEventListener("change", (e) => {
+            if (!("theme" in localStorage)) {
+              if (e.matches) {
+                document.documentElement.classList.add("dark");
+                document
+                  .querySelector('meta[name="theme-color"]')
+                  ?.setAttribute("content", "#1c1917");
+              } else {
+                document.documentElement.classList.remove("dark");
+                document
+                  .querySelector('meta[name="theme-color"]')
+                  ?.setAttribute("content", "#e7e5e4");
+              }
+            }
+          });
       } catch (_) {}
     </script>
   </head>
-  <body
-    class="text-stone-800 transition-colors dark:bg-stone-800 dark:text-stone-300"
-  >
+  <body class="bg-white text-stone-800 dark:bg-stone-800 dark:text-stone-300">
     <div id="root"></div>
   </body>
 </html>
