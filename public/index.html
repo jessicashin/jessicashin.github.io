@@ -19,42 +19,40 @@
     <meta name="theme-color" content="#e7e5e4" />
     <script>
       try {
+        const setDarkTheme = () => {
+          document.documentElement.classList.add("dark");
+          document
+            .querySelector('meta[name="theme-color"]')
+            .setAttribute("content", "#1c1917");
+        };
+        const setLightTheme = () => {
+          document.documentElement.classList.remove("dark");
+          document
+            .querySelector('meta[name="theme-color"]')
+            ?.setAttribute("content", "#e7e5e4");
+        };
+
         if (
           localStorage.theme === "dark" ||
           (!("theme" in localStorage) &&
             window.matchMedia("(prefers-color-scheme: dark)").matches)
         ) {
-          document.documentElement.classList.add("dark");
-          document
-            .querySelector('meta[name="theme-color"]')
-            .setAttribute("content", "#1c1917");
-        } else {
-          document.documentElement.classList.remove("dark");
+          setDarkTheme();
         }
+
+        window
+          .matchMedia("(prefers-color-scheme: dark)")
+          .addEventListener("change", (e) => {
+            if (!("theme" in localStorage)) {
+              e.matches ? setDarkTheme() : setLightTheme();
+            }
+          });
 
         window.addEventListener("DOMContentLoaded", () => {
           setTimeout(() =>
             document.body.classList.add("transition-colors", "duration-500")
           );
         });
-
-        window
-          .matchMedia("(prefers-color-scheme: dark)")
-          .addEventListener("change", (e) => {
-            if (!("theme" in localStorage)) {
-              if (e.matches) {
-                document.documentElement.classList.add("dark");
-                document
-                  .querySelector('meta[name="theme-color"]')
-                  ?.setAttribute("content", "#1c1917");
-              } else {
-                document.documentElement.classList.remove("dark");
-                document
-                  .querySelector('meta[name="theme-color"]')
-                  ?.setAttribute("content", "#e7e5e4");
-              }
-            }
-          });
       } catch (_) {}
     </script>
   </head>

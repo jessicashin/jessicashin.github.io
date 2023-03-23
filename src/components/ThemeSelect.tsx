@@ -57,14 +57,6 @@ export default function ThemeSelect(props: React.HTMLProps<HTMLDivElement>) {
     saveTheme("auto");
   };
 
-  window
-    .matchMedia("(prefers-color-scheme: dark)")
-    .addEventListener("change", (e) => {
-      if (!("theme" in localStorage)) {
-        e.matches ? setDarkTheme() : setLightTheme();
-      }
-    });
-
   return (
     <div className={props.className}>
       <div className="flex gap-4">
