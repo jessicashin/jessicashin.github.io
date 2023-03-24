@@ -24,7 +24,9 @@ export default function App() {
         <ThemeSelect className="justify-self-end lg:order-last" />
         <div>
           <h1 className="text-5xl font-thin md:text-6xl">Jessica Shin</h1>
-          <h2 className="mt-2 text-3xl font-thin">Software Engineer</h2>
+          <h2 className="mt-2 text-2xl font-extralight md:text-3xl">
+            Software Engineer
+          </h2>
         </div>
       </div>
 

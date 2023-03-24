@@ -11,11 +11,11 @@ type JobProps = {
 const Job = (props: JobProps) => (
   <div className="grid gap-x-10 border-r border-stone-800 pr-4 dark:border-stone-300 lg:grid-cols-2">
     <div className="text-right">
-      <div>{props.year}</div>
-      <div className="font-bold text-stone-500 dark:text-stone-400">
-        {props.position}
+      <div className="font-semibold text-stone-600 dark:text-stone-400">
+        <div>{props.year}</div>
+        <div>{props.position}</div>
       </div>
-      <div className="text-3xl font-thin">{props.company}</div>
+      <div className="text-2xl font-light">{props.company}</div>
     </div>
     <p>{props.children}</p>
   </div>
@@ -30,7 +30,9 @@ export default function WorkExperience() {
         </IconLink>
       </div>
       <div className="grid gap-y-8">
-        <h2 className="text-right text-4xl font-thin">My Work Experience</h2>
+        <h2 className="text-right text-4xl font-extralight">
+          My Work Experience
+        </h2>
         <Job
           year="2017-2022"
           position="Software Engineer"

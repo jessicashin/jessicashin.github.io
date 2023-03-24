@@ -83,7 +83,7 @@ export default function ThemeSelect(props: React.HTMLProps<HTMLDivElement>) {
       >
         <Listbox.Button
           as={IconButton}
-          className="text-sm before:mr-2 before:content-['◑']"
+          className="text-sm before:mr-2 before:content-['◑'] focus:outline-none"
         >
           Theme
         </Listbox.Button>
@@ -96,7 +96,7 @@ export default function ThemeSelect(props: React.HTMLProps<HTMLDivElement>) {
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
         >
-          <Listbox.Options className="absolute right-0 mt-3 divide-y divide-stone-400/25 border border-stone-800 bg-white/95 px-2 py-1 dark:divide-stone-500/25 dark:border-stone-300 dark:bg-stone-800/95">
+          <Listbox.Options className="absolute right-0 mt-3 divide-y divide-stone-400/25 border border-stone-800 bg-white/95 px-2 py-1 focus:outline-none dark:divide-stone-500/25 dark:border-stone-300 dark:bg-stone-800/95">
             {themeOptions.map((option) => (
               <Listbox.Option
                 key={option}
