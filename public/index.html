@@ -17,7 +17,28 @@
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
     <title>Jessica Shin</title>
     <meta name="theme-color" content="#e7e5e4" />
-    <script>
+
+    <script type="text/javascript">
+      // https://github.com/rafgraph/spa-github-pages
+      (function (l) {
+        if (l.search[1] === "/") {
+          var decoded = l.search
+            .slice(1)
+            .split("&")
+            .map(function (s) {
+              return s.replace(/~and~/g, "&");
+            })
+            .join("?");
+          window.history.replaceState(
+            null,
+            null,
+            l.pathname.slice(0, -1) + decoded + l.hash
+          );
+        }
+      })(window.location);
+    </script>
+
+    <script type="text/javascript">
       try {
         const setDarkTheme = () => {
           document.documentElement.classList.add("dark");
