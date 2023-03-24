@@ -12,7 +12,7 @@ const Job = (props: JobProps) => (
   <div className="grid gap-x-10 border-r border-stone-800 pr-4 dark:border-stone-300 lg:grid-cols-2">
     <div className="text-right">
       <div>{props.year}</div>
-      <div className="font-bold text-stone-600 dark:text-stone-400">
+      <div className="font-bold text-stone-500 dark:text-stone-400">
         {props.position}
       </div>
       <div className="text-3xl font-thin">{props.company}</div>

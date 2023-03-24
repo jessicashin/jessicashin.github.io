@@ -8,14 +8,21 @@ const ButtonText = (props: PropsWithChildren) => (
   </span>
 );
 
-export function IconButton(props: React.ComponentProps<"button">) {
+export const IconButton = React.forwardRef<
+  HTMLButtonElement,
+  React.ComponentProps<"button">
+>((props, ref) => {
   const { children, className, ...buttonProps } = props;
   return (
-    <button className={clsx("group uppercase", className)} {...buttonProps}>
+    <button
+      ref={ref}
+      className={clsx("group uppercase", className)}
+      {...buttonProps}
+    >
       <ButtonText>{children}</ButtonText>
     </button>
   );
-}
+});
 
 export function IconLink(props: LinkProps) {
   const { children, className, ...linkProps } = props;

@@ -20,10 +20,10 @@ export default function App() {
 
   return (
     <div className="container mx-auto px-8 py-6 sm:px-16 sm:py-12 md:px-20 md:py-16 xl:px-32 xl:py-28">
-      <div className="mb-8 grid gap-y-10 lg:grid-cols-2">
+      <div className="mb-8 grid gap-y-8 lg:grid-cols-2">
         <ThemeSelect className="justify-self-end lg:order-last" />
         <div>
-          <h1 className="text-6xl font-thin">Jessica Shin</h1>
+          <h1 className="text-5xl font-thin md:text-6xl">Jessica Shin</h1>
           <h2 className="mt-2 text-3xl font-thin">Software Engineer</h2>
         </div>
       </div>

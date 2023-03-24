@@ -1,32 +1,35 @@
-import { useState } from "react";
+import { Fragment, useState } from "react";
 import clsx from "clsx";
 import { IconButton } from "./IconButton";
+import { Listbox, Transition } from "@headlessui/react";
 
-type ThemeOption = "light" | "dark" | "auto";
+const themeOptions = ["light", "dark", "auto"] as const;
+type ThemeOption = typeof themeOptions[number];
 
-interface ThemeButtonProps {
+interface ThemeButtonProps extends React.ComponentPropsWithRef<"button"> {
   theme: ThemeOption;
   selected: boolean;
-  onSelectChange: () => void;
 }
 
-const ThemeButton = (props: ThemeButtonProps) => (
+const ThemeButton = ({ theme, selected, ...props }: ThemeButtonProps) => (
   <IconButton
     className={clsx(
       "text-sm before:mr-1",
-      props.selected ? "before:content-['■']" : "before:content-['□']"
+      selected ? "before:content-['■']" : "before:content-['□']"
     )}
-    onClick={props.onSelectChange}
+    {...props}
   >
-    {props.theme}
+    {theme}
   </IconButton>
 );
 
 export default function ThemeSelect(props: React.HTMLProps<HTMLDivElement>) {
-  const [theme, setTheme] = useState<ThemeOption>(localStorage.theme || "auto");
+  const [selectedTheme, setSelected] = useState<ThemeOption>(
+    localStorage.theme || "auto"
+  );
 
   const saveTheme = (theme: ThemeOption) => {
-    setTheme(theme);
+    setSelected(theme);
     if (theme === "auto") {
       localStorage.removeItem("theme");
     } else {
@@ -57,24 +60,70 @@ export default function ThemeSelect(props: React.HTMLProps<HTMLDivElement>) {
     saveTheme("auto");
   };
 
+  const selectTheme = (theme: ThemeOption) => {
+    switch (theme) {
+      case "light":
+        setLightTheme(true);
+        break;
+      case "dark":
+        setDarkTheme(true);
+        break;
+      case "auto":
+        setSystemTheme();
+    }
+  };
+
   return (
     <div className={props.className}>
-      <div className="flex gap-4">
-        <ThemeButton
-          theme="light"
-          selected={theme === "light"}
-          onSelectChange={() => setLightTheme(true)}
-        />
-        <ThemeButton
-          theme="dark"
-          selected={theme === "dark"}
-          onSelectChange={() => setDarkTheme(true)}
-        />
-        <ThemeButton
-          theme="auto"
-          selected={theme === "auto"}
-          onSelectChange={setSystemTheme}
-        />
+      <Listbox
+        as="div"
+        className="relative sm:hidden"
+        value={selectedTheme}
+        onChange={selectTheme}
+      >
+        <Listbox.Button
+          as={IconButton}
+          className="text-sm before:mr-2 before:content-['◑']"
+        >
+          Theme
+        </Listbox.Button>
+        <Transition
+          as={Fragment}
+          enter="transition ease-out duration-100"
+          enterFrom="transform opacity-0"
+          enterTo="transform opacity-100"
+          leave="transition ease-in duration-150"
+          leaveFrom="opacity-100"
+          leaveTo="opacity-0"
+        >
+          <Listbox.Options className="absolute right-0 mt-3 divide-y divide-stone-400/25 border border-stone-800 bg-white/95 px-2 py-1 dark:divide-stone-500/25 dark:border-stone-300 dark:bg-stone-800/95">
+            {themeOptions.map((option) => (
+              <Listbox.Option
+                key={option}
+                value={option}
+                className={({ selected }) =>
+                  clsx(
+                    "grid cursor-default select-none grid-cols-[12px_1fr_12px] items-center py-1 text-center text-sm uppercase",
+                    selected && "before:text-xs before:content-['▸']"
+                  )
+                }
+              >
+                <span className="col-start-2">{option}</span>
+              </Listbox.Option>
+            ))}
+          </Listbox.Options>
+        </Transition>
+      </Listbox>
+
+      <div className="hidden gap-4 sm:flex">
+        {themeOptions.map((option) => (
+          <ThemeButton
+            key={option}
+            theme={option}
+            selected={option === selectedTheme}
+            onClick={() => selectTheme(option)}
+          />
+        ))}
       </div>
     </div>
   );
