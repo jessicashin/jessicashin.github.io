@@ -38,7 +38,7 @@ export function Hyperlink(props: React.ComponentProps<"a">) {
   return (
     <a
       className={clsx(
-        "group after:ml-1 after:align-text-bottom after:text-sm after:content-['↗']",
+        "group after:ml-1 after:text-sm after:content-['↗']",
         className
       )}
       target="_blank"

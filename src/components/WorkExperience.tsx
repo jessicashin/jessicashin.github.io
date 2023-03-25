@@ -1,21 +1,24 @@
 import React from "react";
-import { IconLink } from "./IconButton";
+import { Hyperlink, IconLink } from "./IconButton";
 
 type JobProps = {
   year: string;
   position: string;
   company: string;
-  children?: React.ReactNode;
+  url: string;
+  children: React.ReactNode;
 };
 
 const Job = (props: JobProps) => (
-  <div className="grid gap-x-10 border-r border-stone-800 pr-4 dark:border-stone-300 lg:grid-cols-2">
-    <div className="text-right">
+  <div className="grid gap-x-10 gap-y-3 border-l border-stone-800 pl-4 dark:border-stone-300 lg:grid-cols-2 lg:border-r lg:border-l-0 lg:pr-4">
+    <div className="lg:text-right">
       <div className="font-semibold text-stone-600 dark:text-stone-400">
         <div>{props.year}</div>
         <div>{props.position}</div>
       </div>
-      <div className="text-2xl font-light">{props.company}</div>
+      <Hyperlink className="md:text-xl md:font-light" href={props.url}>
+        {props.company}
+      </Hyperlink>
     </div>
     <p>{props.children}</p>
   </div>
@@ -29,14 +32,15 @@ export default function WorkExperience() {
           Go Home
         </IconLink>
       </div>
-      <div className="grid gap-y-8">
-        <h2 className="text-right text-4xl font-extralight">
+      <div className="grid gap-y-10">
+        <h2 className="mt-2 -mb-2 text-3xl font-extralight md:text-4xl lg:m-0 lg:text-right">
           My Work Experience
         </h2>
         <Job
           year="2017-2022"
           position="Software Engineer"
           company="Principal Development Group Consulting"
+          url="https://pdgc.com/"
         >
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. In velit
           quam, semper et quam ac, sodales sollicitudin elit. Nullam sodales
@@ -48,7 +52,8 @@ export default function WorkExperience() {
         <Job
           year="2016-2017"
           position="Frontend Developer"
-          company="Intelligent Systems Technology, Inc."
+          company="Intelligent Systems Technology Inc"
+          url="https://www.intelsystech.com/"
         >
           Donec egestas urna ligula, sit amet facilisis massa condimentum sed.
           Integer maximus justo vel blandit facilisis. Vivamus pellentesque

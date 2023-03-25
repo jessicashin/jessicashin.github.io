@@ -59,7 +59,7 @@ export default function Home() {
         <Link
           to="/work"
           role="button"
-          className="group relative flex flex-col items-end text-4xl font-extralight uppercase before:absolute before:top-1 before:left-5 before:content-['→'] md:text-6xl md:font-thin"
+          className="group relative flex flex-col items-end text-4xl font-extralight uppercase before:absolute before:top-1 before:left-5 before:text-3xl before:content-['→'] md:text-6xl md:font-thin md:before:top-2 md:before:left-8 md:before:text-5xl"
         >
           {["My Work", "Experience"].map((text, index) => (
             <div

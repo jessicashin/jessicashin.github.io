@@ -19,7 +19,7 @@ export default function App() {
   }, [contentIsShowing, location, displayLocation]);
 
   return (
-    <div className="container mx-auto px-8 py-6 sm:px-16 sm:py-12 md:px-20 md:py-16 xl:px-32 xl:py-28">
+    <div className="container mx-auto px-8 pt-6 pb-10 sm:px-16 sm:py-12 md:px-20 md:py-16 xl:px-32 xl:py-28">
       <div className="mb-8 grid gap-y-8 lg:grid-cols-2">
         <ThemeSelect className="justify-self-end lg:order-last" />
         <div>
