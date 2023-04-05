@@ -6,12 +6,14 @@ export default function Home() {
   const LinkSection = ({ className, ...props }: React.ComponentProps<"ul">) => (
     <ul className={clsx("grid gap-2", className)} {...props}>
       <li>
-        <Hyperlink href="https://www.linkedin.com/in/jessica-shin/">
-          LinkedIn
+        <Hyperlink href="https://github.com/jessicashin/jessicashin.github.io">
+          GitHub
         </Hyperlink>
       </li>
       <li>
-        <Hyperlink>Résumé</Hyperlink>
+        <Hyperlink href="https://www.linkedin.com/in/jessica-shin/">
+          LinkedIn
+        </Hyperlink>
       </li>
       <li>
         <Hyperlink href="mailto:jessicasyshin@gmail.com">

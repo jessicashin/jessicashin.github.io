@@ -20,7 +20,7 @@ const Job = (props: JobProps) => (
         {props.company}
       </Hyperlink>
     </div>
-    <p>{props.children}</p>
+    <div className="grid gap-y-2">{props.children}</div>
   </div>
 );
 
@@ -42,12 +42,24 @@ export default function WorkExperience() {
           company="Principal Development Group Consulting"
           url="https://pdgc.com/"
         >
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. In velit
-          quam, semper et quam ac, sodales sollicitudin elit. Nullam sodales
-          orci in lacinia euismod. Cras dignissim tortor quis risus congue, at
-          feugiat purus rhoncus. In hac habitasse platea dictumst. Nulla vel
-          massa urna. Maecenas rutrum lectus in ligula volutpat, pretium aliquet
-          urna ullamcorper.
+          <p>
+            I was responsible for leading the frontend development on a variety
+            of business- and customer-facing applications with a focus on clean
+            visualization of large data sets and intuitive navigation of complex
+            workflows.
+          </p>
+          <p>
+            This included a customer portal for 30,000+ songwriters and
+            publishers to manage their royalty earnings and the corresponding
+            app for business owners to handle the reporting and billing
+            associated with music licenses, as well as a video-sharing app to
+            assist customer support agents.
+          </p>
+          <p>
+            I also collaborated on large teams to build backend microservices
+            and APIs for television licensing and asset management at clients
+            including 21st Century Fox and AT&T.
+          </p>
         </Job>
         <Job
           year="2016-2017"
@@ -55,9 +67,13 @@ export default function WorkExperience() {
           company="Intelligent Systems Technology Inc"
           url="https://www.intelsystech.com/"
         >
-          Donec egestas urna ligula, sit amet facilisis massa condimentum sed.
-          Integer maximus justo vel blandit facilisis. Vivamus pellentesque
-          vitae erat eu iaculis. Duis pretium arcu at purus laoreet feugiat.
+          <p>
+            I worked alongside a small team of developers and systems engineers
+            to build a simulation tool for the U.S. Army Research Laboratory. I
+            was responsible for the frontend features including a matrix
+            component for defining granular project parameters with a responsive
+            grid layout and dynamic cell editing.
+          </p>
         </Job>
       </div>
     </div>
