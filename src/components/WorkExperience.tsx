@@ -10,7 +10,7 @@ type JobProps = {
 };
 
 const Job = (props: JobProps) => (
-  <div className="grid gap-x-10 gap-y-3 border-l border-stone-800 pl-4 dark:border-stone-300 lg:grid-cols-2 lg:border-r lg:border-l-0 lg:pr-4">
+  <div className="grid gap-x-10 gap-y-3 border-l border-stone-800 pl-4 dark:border-stone-300 lg:grid-cols-2 lg:border-l-0 lg:border-r lg:pr-4">
     <div className="lg:text-right">
       <div className="font-semibold text-stone-600 dark:text-stone-400">
         <div>{props.year}</div>
@@ -33,7 +33,7 @@ export default function WorkExperience() {
         </IconLink>
       </div>
       <div className="grid gap-y-10">
-        <h2 className="mt-2 -mb-2 text-3xl font-extralight md:text-4xl lg:m-0 lg:text-right">
+        <h2 className="-mb-2 mt-2 text-3xl font-extralight md:text-4xl lg:m-0 lg:text-right">
           My Work Experience
         </h2>
         <Job
@@ -69,10 +69,10 @@ export default function WorkExperience() {
         >
           <p>
             I worked alongside a small team of developers and systems engineers
-            to build a simulation tool for the U.S. Army Research Laboratory. I
-            was responsible for the frontend features including a matrix
-            component for defining granular project parameters with a responsive
-            grid layout and dynamic cell editing.
+            to build a systems engineering and simulation software for the U.S.
+            Army Research Laboratory. I designed the project dashboard and
+            developed a responsive Design Structure Matrix component for
+            defining system elements and their relationships.
           </p>
         </Job>
       </div>

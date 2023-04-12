@@ -61,14 +61,14 @@ export default function Home() {
         <Link
           to="/work"
           role="button"
-          className="group relative flex flex-col items-end text-4xl font-extralight uppercase before:absolute before:top-1 before:left-5 before:text-3xl before:content-['→'] md:text-6xl md:font-thin md:before:top-2 md:before:left-8 md:before:text-5xl"
+          className="group relative flex flex-col items-end text-4xl font-extralight uppercase before:absolute before:left-5 before:top-1 before:text-3xl before:content-['→'] md:text-6xl md:font-thin md:before:left-8 md:before:top-2 md:before:text-5xl"
         >
           {["My Work", "Experience"].map((text, index) => (
             <div
-              className="relative -mb-1 after:absolute after:top-0 after:left-0 after:bottom-0 after:block after:w-0 after:bg-stone-800 after:transition-all after:duration-75 last:mb-0 group-hover:text-stone-300 group-hover:after:w-full dark:after:bg-stone-300 dark:group-hover:text-stone-800"
+              className="relative -mb-1 after:absolute after:bottom-0 after:left-0 after:top-0 after:block after:w-0 after:bg-stone-800 after:transition-all after:duration-75 last:mb-0 group-hover:text-stone-300 group-hover:after:w-full dark:after:bg-stone-300 dark:group-hover:text-stone-800"
               key={index}
             >
-              <div className="relative z-10 pt-1 pr-3 pl-2">{text}</div>
+              <div className="relative z-10 pl-2 pr-3 pt-1">{text}</div>
             </div>
           ))}
         </Link>
